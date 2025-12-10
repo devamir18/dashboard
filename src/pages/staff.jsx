@@ -8,6 +8,8 @@ const Staff = () => {
      { id: 2, name: "Abuka", position: "Developer", email: "jane@company.com" },
   ]);
 
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editStaff, setEditStaff] = useState({ id: "", name: "", position: "", email: "" });
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [newStaff, setNewStaff] = useState({ name: "", position: "", email: "" });
@@ -38,6 +40,21 @@ const Staff = () => {
       : b.name.localeCompare(a.name);
   });
 
+
+           const openEditModal = (staff) => {
+    setEditStaff(staff);
+    setEditModalOpen(true);
+  };
+
+  
+  const updateStaff = () => {
+    setStaffList(
+      staffList.map((s) =>
+        s.id === editStaff.id ? editStaff : s
+      )
+    );
+    setEditModalOpen(false);
+  };
 
   const filteredStaff = sortedStaff.filter((s) =>
     s.name.toLowerCase().includes(search.toLowerCase())
@@ -135,12 +152,12 @@ const Staff = () => {
                 >
                   Delete
                 </button>
-                 <button
-                  onClick={() => deleteStaff(staff.id)}
-                  className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                >
-                  Edit
-                </button>
+                  <button
+                      onClick={() => openEditModal(staff)}
+                      className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      Edit
+                    </button>
               </td>
             </tr>
           ))}
@@ -167,6 +184,44 @@ const Staff = () => {
           </div>
         </div>
       )}
+
+       {editModalOpen && (
+          <div className="fixed inset-0 flex justify-center items-center bg-black/85 bg-opacity-40">
+            <div className="bg-white p-6 rounded shadow-lg w-100 bg-gradient-to-b from-slate-900 to-teal-700">
+              <h2 className="text-xl font-semibold text-white mb-4">Edit Staff</h2>
+
+              <input
+                className="p-2 bg-white/25 text-white rounded w-full mb-2"
+                value={editStaff.name}
+                onChange={(e) => setEditStaff({ ...editStaff, name: e.target.value })}
+              />
+              <input
+                className="bg-white/25 p-2 text-white rounded w-full mb-2"
+                value={editStaff.position}
+                onChange={(e) => setEditStaff({ ...editStaff, position: e.target.value })}
+              />
+              <input
+                className="bg-white/25 p-2 rounded text-white w-full mb-2"
+                value={editStaff.email}
+                onChange={(e) => setEditStaff({ ...editStaff, email: e.target.value })}
+              />
+
+              <button
+                onClick={updateStaff}
+                className="w-full bg-teal-600 text-white py-2 rounded hover:bg-green-700 mb-2"
+              >
+                Save Changes
+              </button>
+
+              <button
+                onClick={() => setEditModalOpen(false)}
+                className="w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
     </div>
     </>
   );
