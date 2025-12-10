@@ -10,6 +10,7 @@ import Addstaff from './component/addstaff';
 import Attendance from './pages/attendance'
 import Timesheet from './pages/timesheet';
 import Login from './pages/login'
+import Payroll from './component/payroll';
 
 
 function App() {

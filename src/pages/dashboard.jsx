@@ -3,11 +3,13 @@ import Sidebar from '../component/sidebar'
 import Table from '../component/table' 
 import { Link } from 'react-router-dom'
 import Attendancetable from '../component/attendancetable'
-import Payroll from './payrolll'
+import Payroll from '../component/payroll'
+
 
 export default function Dashboard () {
 
-  const [show,setShow]= useState(false);
+    const [show,setShow]= useState(false); 
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
@@ -50,6 +52,7 @@ export default function Dashboard () {
             <div className='w-full h-20 border-b-1 border-slate-300 flex justify-between'>
               <h2 className='mx-16 py-2 text-base  font-bold text-slate-800 font-sans md:text-2xl mt-6 px-5'>HR Dashboard Overview</h2>
               <div className='flex mx-4 items-center'>
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className='text-slate-800 size-6 mx-4 mt-4'><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 9a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-2 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11s11-4.925 11-11S18.075 1 12 1M3 12c0 2.09.713 4.014 1.908 5.542A8.99 8.99 0 0 1 12.065 14a8.98 8.98 0 0 1 7.092 3.458A9 9 0 1 0 3 12m9 9a8.96 8.96 0 0 1-5.672-2.012A6.99 6.99 0 0 1 12.065 16a6.99 6.99 0 0 1 5.689 2.92A8.96 8.96 0 0 1 12 21"/></g></svg>
                 
               </div>
          </div>
@@ -57,7 +60,7 @@ export default function Dashboard () {
 
                 <div className='grid grid-cols-1 md:grid-cols-4 space-y-6 px-20 space-x-4 mt-6'>  
                    {cardItems.map((items)=>(
-                   <div className='border-t-2 border-teal-700/50 h-40 rounded-xl shadow-xl hover:-translate-1 duration-300 px-12'>
+                   <div className='h-40 rounded-xl shadow-2xl hover:-translate-1 duration-300 px-12'>
                     <div className='flex justify-between'>
                       <span className='font-bold text-[#3A3A3A] font-serif px-4 py-3'>{items.title}</span>
                      <span className='text-slate-700 size-12 mt-3'>{items.icon}</span>
@@ -67,8 +70,7 @@ export default function Dashboard () {
 
 
                 ))}
-             </div>
-                   
+             </div> 
                     <div className='grid grid-cols-1 h-auto space-y-4 md:grid-cols-2 px-16'>
                       <div className='ml-12'>
                         <Payroll/>
@@ -76,29 +78,56 @@ export default function Dashboard () {
                      <div className="w-auto h-85 rounded-2xl border border-slate-200 m-auto 
                 bg-gradient-to-br from-slate-50 to-teal-50 
                 p-8 flex flex-col justify-center items-center gap-6 shadow-lg ml-12">
-
                  <button className="w-72 h-14 rounded-xl bg-teal-500 text-white font-semibold 
-                        shadow hover:bg-teal-600 hover:scale-[1.03] transition-all">
+                        shadow hover:bg-teal-600 hover:scale-[1.03] transition-all"
+                         onClick={() => {
+                    setIsModalOpen(true);
+                  }}>
                   Add Staff
                  </button> 
-
                   <button className="w-72 h-14 rounded-xl bg-teal-500 text-white font-semibold 
                          shadow hover:bg-teal-600 hover:scale-[1.03] transition-all">
                        Edit Attendance
                               </button>
-
                             </div>
                     </div>
-
              {/* Table */}
                <div className='ml-13'>
           <Table/>
             </div>
            <div className='mt-12 ml-13'>
           <Attendancetable/></div> 
+            {isModalOpen &&  (
+        <div className="fixed inset-0 flex justify-center  items-center bg-black/65  bg-opacity-40">
+          <div className="p-6 rounded-xl shadow-lg  bg-gradient-to-b from-slate-900 to-teal-700 w-100 h-100">
+            <div className='flex justify-between'>
+              <h2 className="text-2xl text-white font-bold px-3 "></h2>
+              <button  onClick={() => setIsModalOpen(false)}>  <svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048" className='size-4 text-white mt-3'><path fill="currentColor" d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90z"/></svg></button>
+            </div>
+            <div className='flex items-center'>
+              <form>
+                    <div className='h-auto mt-8'>
+                      <p className='py-3 text-white texxt-xl font-semibold'>Staff iD</p>
+                   <input type="staff" name="" id="" className='w-90 rounded h-10 bg-white/30 -mt-4' />   
+                   </div>
+                   <p className='py-2 text-white font-semibold'>Department</p>
+                     <select className='w-90 h-10 rounded text-slate-800 font-semibold px-4 bg-white/30'>
+                      <option value="">UI/UX Designer </option>
+                         <option value="">Backend Engr</option>
+                            <option value="">Software Engr</option>
+                     </select>
+                     <button className='w-90 h-10 bg-teal-500  mt-7 rounded font-semibold text-white'>Add</button>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      )}
+
 
          </div>
           </div>
+
 
      </>
     )
