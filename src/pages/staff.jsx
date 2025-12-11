@@ -129,11 +129,11 @@ const Staff = () => {
         </thead>
         <tbody>
           {filteredStaff.map((staff) => (
-            <tr key={staff.id} className="divide-y-1 divide-slate-100">
+            <tr key={staff.id} className="divide-y divide-slate-100">
               <td className="p-3 font-medium hover:bg-white">{staff.name}</td>
               <td className="p-3">{staff.position}</td>
               <td className="p-3">{staff.email}</td>
-              <td className="p-3 text-center space-x-2">
+              <td className="p-3 text-center space-x-2 space-y-2">
               
                 <button
                   onClick={() => {
