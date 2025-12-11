@@ -22,10 +22,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public routes */}
+       
         <Route path="/login" element={<Login />} />
 
-        {/* Private routes with Sidebar layout */}
+
         <Route
           path="/dashboard"
           element={
