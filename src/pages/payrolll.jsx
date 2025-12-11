@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "../component/sidebar";
+
 
 export default function Payroll() {
   const [totalHours, setTotalHours] = useState("");
@@ -23,7 +23,7 @@ export default function Payroll() {
 
       {/* Main Container */}
       <div className="flex-1 p-8">
-        <div className="max-w-lg mx-auto bg-gradient-to-br from-slate-50 to-teal-50 
+        <div className="max-w-lg mx-auto bg-linear-to-br from-slate-50 to-teal-50 
                         shadow-xl rounded-2xl p-8 border border-slate-200">
 
           <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">

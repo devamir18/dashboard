@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "../component/sidebar";
+
 
 export default function Attendance() {
   const [records, setRecords] = useState([]);

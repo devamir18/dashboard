@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Sidebar from '../component/sidebar'
 import Table from '../component/table' 
 import { Link } from 'react-router-dom'
 import Attendancetable from '../component/attendancetable'

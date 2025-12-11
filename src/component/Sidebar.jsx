@@ -48,7 +48,7 @@ export default function Sidebar() {
       {/* MOBILE SIDEBAR — SAME STYLE AS DESKTOP */}
       {show && (
         <div className="md:hidden fixed top-0 left-0 w-64 h-full z-50 
-                        bg-gradient-to-b from-slate-900 to-teal-700 text-white shadow-xl">
+                        bg-linear-to-b from-slate-900 to-teal-700 text-white shadow-xl">
           <div className="p-6 border-b border-white/20 text-xl font-bold">
             HR Mini
           </div>
@@ -76,7 +76,7 @@ export default function Sidebar() {
     
       <div
         className="hidden md:block fixed top-0 left-0 w-64 h-full 
-                   bg-gradient-to-b from-slate-900 to-teal-700 shadow-lg text-white"
+                   bg-linear-to-b from-slate-900 to-teal-700 shadow-lg text-white"
       >
         <div className="p-6 border-b border-white/20">
           <h2 className="text-2xl font-bold">HR Mini</h2>
