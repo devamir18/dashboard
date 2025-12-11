@@ -8,7 +8,7 @@ import Payrolll from './pages/payrolll';
 import Timesheet from './pages/timesheet';
 import Login from './pages/login';
 
-// Layout component to include Sidebar on main pages
+
 function MainLayout({ children }) {
   return (
     <div className="app-layout">
