@@ -40,7 +40,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Toggle Button */}
-      <button className="md:hidden p-3" onClick={() => setShow(!show)}>
+      <button className="md:hidden p-3 text-black" onClick={() => setShow(!show)}>
       </button>
 
       {/* MOBILE SIDEBAR — SAME STYLE AS DESKTOP */}
