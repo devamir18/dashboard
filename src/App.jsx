@@ -12,7 +12,7 @@ import Login from './pages/login';
 function MainLayout({ children }) {
   return (
     <div className="app-layout">
-      <Sidebar />
+      <Sidebar/>
       <div className="main-content">{children}</div>
     </div>
   );
