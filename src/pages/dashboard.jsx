@@ -8,7 +8,6 @@ import Payroll from '../component/payroll'
 
 export default function Dashboard () {
 
-    const [show,setShow]= useState(false); 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -45,10 +44,10 @@ export default function Dashboard () {
         <>
          <div className='flex justify-between'>
            <div className='flex-1'>
-            <Sidebar/>
+            {/* <Sidebar/> */}
            </div>
 <div className='w-full h-auto md:max-w-6xl bg-gradient-to-r from-slate-200 to-teal-50'>
-            {/*  Navbar */}
+            {/*Navbar */}
             <div className='w-full h-20 border-b-1 border-slate-300 flex justify-between'>
               <h2 className='mx-16 py-2 text-base  font-bold text-slate-800 font-sans md:text-2xl mt-6 px-5'>HR Dashboard Overview</h2>
               <div className='flex mx-4 items-center'>
@@ -58,7 +57,7 @@ export default function Dashboard () {
          </div>
          {/* Main Content */}
 
-                <div className='grid grid-cols-1 md:grid-cols-4 space-y-6 px-20 space-x-4 mt-6'>  
+                <div className='grid grid-cols-1 md:grid-cols-4 space-y-6 px-20 space-x-4 mt-6'> 
                    {cardItems.map((items)=>(
                    <div className='h-40 rounded-xl shadow-2xl hover:-translate-1 duration-300 px-12'>
                     <div className='flex justify-between'>
@@ -71,7 +70,7 @@ export default function Dashboard () {
 
                 ))}
              </div> 
-                    <div className='grid grid-cols-1 h-auto space-y-4 md:grid-cols-2 px-16'>
+                    <div className='grid grid-cols-1 h-auto space-y-4 md:grid-cols-2 '>
                       <div className='ml-12'>
                         <Payroll/>
                       </div>

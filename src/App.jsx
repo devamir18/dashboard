@@ -1,31 +1,82 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './component/sidebar';
-import Attendancetable from './component/attendancetable' 
 import Dashboard from './pages/dashboard';
-import Table from'./component/table'
-import Staff from './pages/staff'
-import Payrolll from './pages/payrolll';
-import Timesheetcard from './component/Timesheetcard'
+import Attendance from './pages/attendance';
+import Staff from './pages/staff';
 import Addstaff from './component/addstaff';
-import Attendance from './pages/attendance'
+import Payrolll from './pages/payrolll';
 import Timesheet from './pages/timesheet';
-import Login from './pages/login'
-import Payroll from './component/payroll';
+import Login from './pages/login';
 
+// Layout component to include Sidebar on main pages
+function MainLayout({ children }) {
+  return (
+    <div className="app-layout">
+      <Sidebar />
+      <div className="main-content">{children}</div>
+    </div>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/attendance" element={<Attendance/>} />
-        <Route path="/" element={<Sidebar/>} />
-        <Route path="/staff" element={<Staff/>} />
-         <Route path="/payroll" element={<Payrolll/>} />
-          <Route path="/staff" element={<Addstaff/>} />
-           <Route path="/timesheet" element={<Timesheet/>} />
-           <Route path="/login" element={<Login/>} />
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Private routes with Sidebar layout */}
+        <Route
+          path="/dashboard"
+          element={
+            <MainLayout>
+              <Dashboard />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/attendance"
+          element={
+            <MainLayout>
+              <Attendance />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/staff"
+          element={
+            <MainLayout>
+              <Staff />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/add-staff"
+          element={
+            <MainLayout>
+              <Addstaff />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/payroll"
+          element={
+            <MainLayout>
+              <Payrolll />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/timesheet"
+          element={
+            <MainLayout>
+              <Timesheet />
+            </MainLayout>
+          }
+        />
+
+        {/* Redirect unknown paths to login */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );
