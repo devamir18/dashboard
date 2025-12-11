@@ -41,7 +41,6 @@ export default function Sidebar() {
     <>
       {/* Mobile Toggle Button */}
       <button className="md:hidden p-3" onClick={() => setShow(!show)}>
-        {show ? <X size={28} /> : <Menu size={28} />}
       </button>
 
       {/* MOBILE SIDEBAR — SAME STYLE AS DESKTOP */}
