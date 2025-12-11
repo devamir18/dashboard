@@ -19,7 +19,7 @@ const Timesheet = () => {
   return (
     <>
       <div>
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
 
       <div className="w-full h-screen md:max-w-6xl bg-white float-right p-6">

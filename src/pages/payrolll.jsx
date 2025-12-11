@@ -19,7 +19,7 @@ export default function Payroll() {
 
   return (
     <div className="flex">
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       {/* Main Container */}
       <div className="flex-1 p-8">

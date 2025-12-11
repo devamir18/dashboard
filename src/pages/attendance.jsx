@@ -63,7 +63,7 @@ export default function Attendance() {
     <>
     <div>
       <div className='flex-1'>
-               <Sidebar/>
+               {/* <Sidebar/> */}
               </div>
     <div className="w-full h-screen md:max-w-6xl float-right bg-teal-50 ">
       <h2 className="text-xl font-bold mb- mx-16 py-6">Attendance Module</h2>

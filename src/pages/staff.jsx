@@ -63,7 +63,7 @@ const Staff = () => {
   return (
     <>
     <div>
-    <Sidebar/>
+    {/* <Sidebar/> */}
     </div>
     <div className="w-full h-screen bg-teal-50 md:max-w-6xl float-right ">
       <h1 className="text-2xl font-bold mb-6 px-16 py-4 text-slate-800">Staff Management</h1>
