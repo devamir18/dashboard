@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Sidebar from './component/sidebar';
+import Sidebar from './component/Sidebar';
 import Dashboard from './pages/dashboard';
 import Attendance from './pages/attendance';
 import Staff from './pages/staff';
