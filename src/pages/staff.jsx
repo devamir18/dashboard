@@ -117,7 +117,7 @@ const Staff = () => {
       </div>
 
       
-    <div className="md:max-w-6xl px-8 rounded">
+    <div className="md:max-w-5xl m-auto mt-12 rounded">
         <table className="w-full bg-teal-50 rounded-3xl shadow-xl ">
         <thead className="rounded-3xl">
           <tr className="text-left">
